@@ -39,19 +39,20 @@ const PostDetail = () => {
         <Link to={`/posts/users/${post.creator}`}>
           <PostAuthor authorId={post.creator} createdAt={post.updatedAt} />
         </Link>
-
-        {post.creator == userId && (
-          <div className=" gap-x-2 flex p-2 max-sm:px-1 max-sm:gap-x-1 max-sm:text-xs">
-            <Link to={"edit"}>
-              <button className="bg-sky-500 px-3 rounded-lg py-1 hover:bg-sky-700 hover:text-white ">
-                edit
-              </button>
-            </Link>
-            <Link to={"delete"}>
-              <DeletePost postId={post._id} token={token} />
-            </Link>
-          </div>
-        )}
+        {token
+          ? post.creator == userId && (
+              <div className=" gap-x-2 flex p-2 max-sm:px-1 max-sm:gap-x-1 max-sm:text-xs">
+                <Link to={"edit"}>
+                  <button className="bg-sky-500 px-3 rounded-lg py-1 hover:bg-sky-700 hover:text-white ">
+                    edit
+                  </button>
+                </Link>
+                <Link to={"delete"}>
+                  <DeletePost postId={post._id} token={token} />
+                </Link>
+              </div>
+            )
+          : ""}
       </div>
       <div className="flex justify-center lg:px-40 md:px-16 pb-4 relative">
         <img

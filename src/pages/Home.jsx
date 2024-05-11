@@ -7,6 +7,7 @@ import { BASE_URL } from "../utl/config";
 const Home = () => {
   const [post, setpost] = useState([]);
   const [loading, setloading] = useState(false);
+  const [refresh, setrefresh] = useState(false);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -21,7 +22,7 @@ const Home = () => {
     };
 
     fetchPosts();
-  }, []);
+  }, [refresh]);
 
   if (loading) {
     return <Loader />;
@@ -40,6 +41,8 @@ const Home = () => {
               creator,
               imagePath,
               updatedAt,
+              likesCount,
+              likes,
             }) => (
               <PostView
                 postId={_id}
@@ -49,6 +52,10 @@ const Home = () => {
                 description={description}
                 imagePath={imagePath}
                 updatedAt={updatedAt}
+                likesCount={likesCount}
+                likes={likes}
+                setrefresh={setrefresh}
+                refresh={refresh}
               />
             )
           )}

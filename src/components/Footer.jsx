@@ -35,7 +35,7 @@ const Footer = () => {
       </div>
       <span className="border-b-2 border-slate-900 w-full "></span>
       <div className="h-12 flex items-center text-xs lg:text-md">
-        All Rights Rserved @copyrigrht 2023 Addisu Anley{" "}
+        All Rights Rserved @copyrigrht 2024 Addisu Anley{" "}
       </div>
     </div>
   );

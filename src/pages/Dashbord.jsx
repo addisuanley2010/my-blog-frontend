@@ -37,7 +37,6 @@ const Dashbord = () => {
   if (loading) {
     return <Loader />;
   }
-  console.log(posts);
   return (
     <div className=" max-md:mt-12 mt-16 pt-2  px-3 ">
       {posts?.length > 0 ? (
